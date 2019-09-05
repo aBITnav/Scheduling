@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <title>Comparing Output</title>
+
+    <script type="text/javascript">
+      $(function () {
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+      });
+    </script>
+  </head>
+  <body>
+
+
+    <div class="container">
+
+      <div class="panel panel-default" style="margin-top:20px;">
+        <div class="panel-heading">Select input for Algo:</div>
+        <div class="row panel-body" style="padding:16px;">
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="sel1">Select Login/Logout</label>
+              <select class="form-control" id="sel1">
+                <option>Login</option>
+                <option>Logout</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="sel1">Select Slot</label>
+              <select class="form-control" id="sel1">
+                <option>12:15</option>
+                <option>14:00</option>
+                <option>18:00</option>
+                <option>20:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="sel1">Select Date</label>
+              <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="sel1"></label>
+              <button class="form-control btn btn-primary" type="submit" onclick="populateTable();"> CALCULATE </button>
+            </div>
+          </div>
+        </div>
+
+      <div class="row panel-body" style="padding:16px;">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="2" class="text-center">No of Cabs</th>
+                <th colspan="2" class="text-center">Kms driven</th>
+                <th colspan="2" class="text-center">Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th></th>
+                <th class="success" >A</th>
+                <th class="info" >B</th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+              </tr>
+              <tr>
+                <th>INDICA</th>
+                <td class="success" id="td11">4</td>
+                <td class="info" id="td12">34</td>
+                <td class="success" id="td13">42 Kms</td>
+                <td class="info" id="td14">872.3 Kms</td>
+                <td class="success" id="td15">42 kms</td>
+                <td class="info" id="td16">10 kms</td>
+              </tr>
+              <tr>
+                <th>SUMO</th>
+                <td class="success" id="td21">6</td>
+                <td class="info" id="td22">14</td>
+                <td class="success" id="td23">136 Kms</td>
+                <td class="info" id="td24">456 Kms</td>
+                <td class="success" id="td25">22.7 kms</td>
+                <td class="info" id="td26">32.6 kms</td>
+              </tr>
+              <tr>
+                <th>TRAVELLER</th>
+                <td class="success" id="td31">25</td>
+                <td class="info" id="td32">18</td>
+                <td class="success" id="td33">540 Kms</td>
+                <td class="info" id="td34">643 Kms</td>
+                <td class="success" id="td35">30 kms</td>
+                <td class="info" id="td36">35.7 kms</td>
+              </tr>
+              <tr>
+                <th>TOTAL</th>
+                <td class="success" id="td41"></td>
+                <td class="info" id="td42">66</td>
+                <td class="success"id="td43"></td>
+                <td class="info"id="td44"></td>
+                <td class="success" id="td45"></td>
+                <td class="info"id="td46"></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+      <div class="row panel-body" style="padding:16px;">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="2" class="text-center">TOTAL COST</th>
+                <th colspan="2" class="text-center">DEROUTE</th>
+                <th colspan="2" class="text-center">OCCUPANCY</th>
+                <th colspan="2" class="text-center">PEOPLE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th></th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+                <th class="success">A</th>
+                <th class="info">B</th>
+              </tr>
+              <tr>
+                <th>INDICA</th>
+                <td class="success" id="td211">6 Rs</td>
+                <td class="info" id="td212">1 Rs</td>
+                <td class="success" id="td213">%</td>
+                <td class="info" id="td214">1.375%</td>
+                <td class="success" id="td215">31.5%</td>
+                <td class="info" id="td216">79%</td>
+                <td class="success" id="td217">5</td>
+                <td class="info" id="td218">108</td>
+              </tr>
+              <tr>
+                <th>SUMO</th>
+                <td class="success" id="td221">2044 Rs</td>
+                <td class="info" id="td222">6838 Rs</td>
+                <td class="success" id="td223">1.139%</td>
+                <td class="info" id="td224">1.76%</td>
+                <td class="success" id="td225">91%</td>
+                <td class="info" id="td226">76.5%</td>
+                <td class="success" id="td227">33</td>
+                <td class="info" id="td228">75</td>
+              </tr>
+              <tr>
+                <th>TRAVELLER</th>
+                <td class="success" id="td231">16803 Rs</td>
+                <td class="info" id="td232">12864 Rs</td>
+                <td class="success" id="td233">1.235%</td>
+                <td class="info" id="td234">2.005%</td>
+                <td class="success" id="td235">84.5%</td>
+                <td class="info" id="td236">64</td>
+                <td class="success" id="td237">284</td>
+                <td class="info" id="td238">139</td>
+              </tr>
+              <tr>
+                <th>TOTAL</th>
+                <td class="success" id="td241">19480 Rs</td>
+                <td class="info" id="td242">32786 Rs</td>
+                <td class="success"></td>
+                <td class="info"></td>
+                <td class="success"></td>
+                <td class="info"></td>
+                <td class="success"></td>
+                <td class="info"></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      </div>
+    </div>
+    
+
+    <script>
+    var ourData ={cab_count: {INDICA: 3, SUMO: 1, TRAVELLER: 1}, cab_wise_distance: {INDICA: 58.481, SUMO: 35.19, TRAVELLER: 44.885}, cab_wise_avg_distance: {INDICA: 19.493666666666666, SUMO: 35.19, TRAVELLER: 44.885}, cab_type_price: {INDICA: 877.215, SUMO: 527.8499999999999, TRAVELLER: 897.6999999999999}, total_price: 2302.765, cab_wise_avg_droutes: {INDICA: 1.0611530926392387, SUMO: 1.4830579905596764, TRAVELLER: 1.3199454948049736}};
+
+    var theirData = {cab_count: {INDICA: 9, SUMO: 0, TRAVELLER: 0}, cab_wise_distance: {INDICA: 475.607, SUMO: 0.0, TRAVELLER: 0.0}, cab_wise_avg_distance: {}, cab_type_price: {INDICA: 7134.1050000000005, SUMO: 0.0, TRAVELLER: 0.0}, total_price: 7134.1050000000005, cab_wise_avg_droutes: {}, occupancy: {}, people_by_cab: {INDICA: 20, SUMO: 0, TRAVELLER: 0}};
+  
+      document.getElementById("td11").innerHTML = ourData.cab_count.INDICA;
+      document.getElementById("td21").innerHTML = ourData.cab_count.SUMO;
+      document.getElementById("td31").innerHTML = ourData.cab_count.TRAVELLER;
+
+      document.getElementById("td12").innerHTML = theirData.cab_count.INDICA;
+      document.getElementById("td22").innerHTML = theirData.cab_count.SUMO;
+      document.getElementById("td32").innerHTML = theirData.cab_count.TRAVELLER;
+
+      document.getElementById("td13").innerHTML = ourData.cab_wise_distance.INDICA.toFixed(2) + " Kms";
+      document.getElementById("td23").innerHTML = ourData.cab_wise_distance.SUMO.toFixed(2) + " Kms";
+      document.getElementById("td33").innerHTML = ourData.cab_wise_distance.TRAVELLER.toFixed(2) + " Kms";
+
+      document.getElementById("td14").innerHTML = theirData.cab_wise_distance.INDICA.toFixed(2) + " Kms";
+      document.getElementById("td24").innerHTML = theirData.cab_wise_distance.SUMO.toFixed(2) + " Kms";
+      document.getElementById("td34").innerHTML = theirData.cab_wise_distance.TRAVELLER.toFixed(2) + " Kms";
+
+      document.getElementById("td15").innerHTML = ourData.cab_wise_avg_distance.INDICA.toFixed(2)+ " Kms";
+      document.getElementById("td25").innerHTML = ourData.cab_wise_avg_distance.SUMO.toFixed(2) + " Kms";
+      document.getElementById("td35").innerHTML = ourData.cab_wise_avg_distance.TRAVELLER.toFixed(2) + " Kms";
+
+      document.getElementById("td16").innerHTML = theirData.cab_wise_avg_distance.INDICA + " Kms";
+      document.getElementById("td26").innerHTML = theirData.cab_wise_avg_distance.SUMO + " Kms";
+      document.getElementById("td36").innerHTML = theirData.cab_wise_avg_distance.TRAVELLER + " Kms";
+
+
+      document.getElementById("td211").innerHTML = ourData.cab_type_price.INDICA.toFixed(2)+" Rs";
+      document.getElementById("td221").innerHTML = ourData.cab_type_price.SUMO.toFixed(2)+" Rs";
+      document.getElementById("td231").innerHTML = ourData.cab_type_price.TRAVELLER.toFixed(2)+" Rs";
+
+      document.getElementById("td212").innerHTML = theirData.cab_type_price.INDICA.toFixed(2)+" Rs";
+      document.getElementById("td222").innerHTML = theirData.cab_type_price.SUMO.toFixed(2)+" Rs";
+      document.getElementById("td232").innerHTML = theirData.cab_type_price.TRAVELLER.toFixed(2)+" Rs";
+
+      // document.getElementById("td213").innerHTML = ourData.cab_wise_avg_droutes.INDICA;
+      // document.getElementById("td223").innerHTML = ourData.cab_wise_avg_droutes.SUMO;
+      // document.getElementById("td233").innerHTML = ourData.cab_wise_avg_droutes.TRAVELLER;
+
+      document.getElementById("td214").innerHTML = theirData.cab_wise_avg_droutes.INDICA+"%";
+      document.getElementById("td224").innerHTML = theirData.cab_wise_avg_droutes.SUMO+"%";
+      document.getElementById("td234").innerHTML = theirData.cab_wise_avg_droutes.TRAVELLER+"%";
+
+      
+
+      document.getElementById("td216").innerHTML = theirData.occupancy.INDICA;
+      document.getElementById("td226").innerHTML = theirData.occupancy.SUMO;
+      document.getElementById("td236").innerHTML = theirData.occupancy.TRAVELLER;
+
+      
+      document.getElementById("td218").innerHTML = theirData.people_by_cab.INDICA;
+      document.getElementById("td228").innerHTML = theirData.people_by_cab.SUMO;
+      document.getElementById("td238").innerHTML = theirData.people_by_cab.TRAVELLER;
+
+      document.getElementById("td241").innerHTML = ourData.total_price+" Rs";
+      document.getElementById("td242").innerHTML = theirData.total_price +" Rs";
+
+      document.getElementById("td41").innerHTML = (ourData.cab_count.INDICA+ourData.cab_count.SUMO+ourData.cab_count.TRAVELLER);
+        </script>  
+<script>
+
+  var ourData ={cab_count: {INDICA: 3, SUMO: 1, TRAVELLER: 1}, cab_wise_distance: {INDICA: 58.481, SUMO: 35.19, TRAVELLER: 44.885}, cab_wise_avg_distance: {INDICA: 19.493666666666666, SUMO: 35.19, TRAVELLER: 44.885}, cab_type_price: {INDICA: 877.215, SUMO: 527.8499999999999, TRAVELLER: 897.6999999999999}, total_price: 2302.765, cab_wise_avg_droutes: {INDICA: 1.0611530926392387, SUMO: 1.4830579905596764, TRAVELLER: 1.3199454948049736}};
+
+    var theirData = {cab_count: {INDICA: 9, SUMO: 0, TRAVELLER: 0}, cab_wise_distance: {INDICA: 475.607, SUMO: 0.0, TRAVELLER: 0.0}, cab_wise_avg_distance: {}, cab_type_price: {INDICA: 7134.1050000000005, SUMO: 0.0, TRAVELLER: 0.0}, total_price: 7134.1050000000005, cab_wise_avg_droutes: {}, occupancy: {}, people_by_cab: {INDICA: 20, SUMO: 0, TRAVELLER: 0}};
+
+
+  document.getElementById("td42").innerHTML = Number(theirData.cab_count.INDICA)+Number(theirData.cab_count.SUMO)+Number(theirData.cab_count.TRAVELLER);
+      document.getElementById("td43").innerHTML = (Number(ourData.cab_wise_distance.INDICA)+Number(ourData.cab_wise_distance.SUMO)+Number(ourData.cab_wise_distance.TRAVELLER)).toFixed(2);
+      document.getElementById("td44").innerHTML = (Number(theirData.cab_wise_distance.INDICA)+Number(theirData.cab_wise_distance.SUMO)+Number(theirData.cab_wise_distance.TRAVELLER)).toFixed(2);
+
+      document.getElementById("td45").innerHTML = ((Number(ourData.cab_count.INDICA)*Number(ourData.cab_wise_distance.INDICA)+Number(ourData.cab_count.SUMO)*Number(ourData.cab_wise_distance.SUMO)+Number(ourData.cab_count.TRAVELLER)*Number(ourData.cab_wise_distance.TRAVELLER)))/(Number(ourData.cab_count.INDICA)+Number(ourData.cab_count.SUMO)+Number(ourData.cab_count.TRAVELLER));
+
+
+      document.getElementById("td46").innerHTML = ((Number(theirData.cab_count.INDICA)*Number(theirData.cab_wise_distance.INDICA)+Number(theirData.cab_count.SUMO)*Number(theirData.cab_wise_distance.SUMO)+Number(theirData.cab_count.TRAVELLER)*Number(theirData.cab_wise_distance.TRAVELLER)))/(Number(theirData.cab_count.INDICA)+Number(theirData.cab_count.SUMO)+Number(theirData.cab_count.TRAVELLER));
+
+
+
+    </script>
+  </body>
+</html>
