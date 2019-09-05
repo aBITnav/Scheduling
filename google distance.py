@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import time
 import json
 
-API_key = "AIzaSyB7rwlVcuzoG7YfpAPzbZ8fPNT8GdihZlw"
+API_key = ""
 
 def distance_calc(sources, destinations):
     """
