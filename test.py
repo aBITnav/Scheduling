@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 
 with open('haversine_matrix.json')as f:

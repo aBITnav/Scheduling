@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 
 with open('all_dist_matrix_new.json')as f:

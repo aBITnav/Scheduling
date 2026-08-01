@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 
 def make_symmetric(matrix):

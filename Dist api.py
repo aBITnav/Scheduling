@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 from pydash import objects
 def make_small(matrix, key):

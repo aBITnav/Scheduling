@@ -1,3 +1,4 @@
+# Refactored and Documented
 import googlemaps
 from datetime import datetime, timedelta
 import time
