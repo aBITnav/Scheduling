@@ -1,18 +1,21 @@
-# Refactored and Documented
+"""
+Module: google distance
+Description: Fetches walking distance matrices using the Google Maps API.
+"""
 import googlemaps
 from datetime import datetime, timedelta
 import time
 import json
+from pydash import objects
 
-API_key = ""
-
-def distance_calc(sources, destinations):
+def distance_calc(api_key, sources, destinations):
     """
-    :param sources: ['12.916936,77.516220' ]
-    :param destinations: ['12.916786,77.605472']
+    Fetches the distance matrix from the Google Maps API.
+    :param api_key: str - Google Maps API key
+    :param sources: list - e.g. ['12.916936,77.516220']
+    :param destinations: list - e.g. ['12.916786,77.605472']
     """
-
-    gmaps = googlemaps.Client(key=API_key)
+    gmaps = googlemaps.Client(key=api_key)
 
     res = gmaps.distance_matrix(
             sources,
@@ -23,3 +26,14 @@ def distance_calc(sources, destinations):
         )
     assert objects.get(res, 'status') == 'OK'
     return objects.get(res, 'rows.0.elements')
+
+def main():
+    """Main execution block."""
+    api_key = ""
+    # Example usage:
+    # sources = ['12.916936,77.516220']
+    # destinations = ['12.916786,77.605472']
+    # print(distance_calc(api_key, sources, destinations))
+
+if __name__ == '__main__':
+    main()
