@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 
 with open('h2o.json') as f:

@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 import csv
 import pandas as pd

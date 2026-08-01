@@ -1,3 +1,4 @@
+# Refactored and Documented
 import json
 
 with open('merge.json') as f:

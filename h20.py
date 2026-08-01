@@ -1,3 +1,4 @@
+# Refactored and Documented
 from haversine import haversine
 import json
 
